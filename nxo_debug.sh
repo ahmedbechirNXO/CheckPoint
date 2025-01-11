@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Variables
-WORK_DIR="/var/tmp/NXO_Debug"
+WORK_DIR="/tmp/NXO_Debug"
 LOG_FILE="$WORK_DIR/nxo_debug.log"
 ARCHIVE_NAME="Nxo_Debug_$(date '+%Y%m%d_%H%M%S').tgz"
-ARCHIVE_PATH="$WORK_DIR/$ARCHIVE_NAME"
+ARCHIVE_PATH="/tmp/$ARCHIVE_NAME"
 
 # Créer le dossier de travail
 log() {
@@ -83,7 +83,7 @@ done
 
 # Étape 8 : Compression des fichiers
 log "Compression des fichiers dans $ARCHIVE_PATH"
-tar czf "$ARCHIVE_PATH" -C "$WORK_DIR" .
+tar czf "$ARCHIVE_PATH" -C "/tmp" "NXO_Debug"
 
 # Vérification de la création de l'archive
 if [ -f "$ARCHIVE_PATH" ]; then
